@@ -9,6 +9,7 @@ function Navbar() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  //aqui agregas la ruta y el icono de cada boton de navegacion
   const navRoutes = [
     {
       path: "/",
@@ -22,11 +23,12 @@ function Navbar() {
     },
   ];
 
+  //No es necesario modificar nada de aqui en adelante
   return (
     <>
       <nav className="d-flex shadow justify-content-between px-5 py-2 border-bottom mb-4">
-        <h1>navbarcito</h1>
-        <div className="p-1" onClick={handleShow}>
+        <h1>SmartFinance</h1>
+        <div className="p-1 hambugerbtn rounded" onClick={handleShow}>
           <img src={HamburgerIcon} className="icon " alt="Hamburger Icon" />
         </div>
       </nav>
