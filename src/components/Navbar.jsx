@@ -31,6 +31,11 @@ function Navbar() {
       name: "Punto de Equilibrio",
       icon: "../../public/icons/equilibrio.png",
     },
+    {
+      path: "/presupuesto",
+      name: "Presupuesto de Caja",
+      icon: "../../public/icons/equilibrio.png",
+    },
   ];
 
   //No es necesario modificar nada de aqui en adelante

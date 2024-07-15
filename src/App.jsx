@@ -5,6 +5,7 @@ import Calculadora from "./pages/Calculadora";
 import Navbar from "./components/Navbar";
 import PuntoEquilibrio from "./pages/PuntoEquilibrio";
 import Depreciacion from "./pages/Depreciacion";
+import Presupuesto from "./pages/Presupuesto";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/calculadora" element={<Calculadora />} />
             <Route path="/depreciacion" element={<Depreciacion />} />
             <Route path="/equilibrio" element={<PuntoEquilibrio />} />
+            <Route path="/presupuesto" element={<Presupuesto />} />
           </Routes>
         </BrowserRouter>
       </div>
