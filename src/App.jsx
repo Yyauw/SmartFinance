@@ -5,6 +5,8 @@ import Calculadora from "./pages/Calculadora";
 import Navbar from "./components/Navbar";
 import PuntoEquilibrio from "./pages/PuntoEquilibrio";
 import Depreciacion from "./pages/Depreciacion";
+import Resultado from "./pages/Resultado";
+import Balance from "./pages/Balance";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculadora" element={<Calculadora />} />
+            <Route path="/balance" element={<Balance />} />
+            <Route path="/resultado" element={<Resultado />} />
             <Route path="/depreciacion" element={<Depreciacion />} />
             <Route path="/equilibrio" element={<PuntoEquilibrio />} />
           </Routes>

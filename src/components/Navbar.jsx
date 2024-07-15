@@ -22,6 +22,16 @@ function Navbar() {
       icon: "../../public/icons/finance.png",
     },
     {
+      path: "/balance",
+      name: "Balance General",
+      icon: "../../public/icons/balance.png",
+    },
+    {
+      path: "/resultado",
+      name: "Estado de Resultados",
+      icon: "../../public/icons/resultado.png",
+    },
+    {
       path: "/depreciacion",
       name: "Depreciacion Acumulada",
       icon: "../../public/icons/depreciacion.png",
