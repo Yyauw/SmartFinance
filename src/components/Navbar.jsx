@@ -21,13 +21,23 @@ function Navbar() {
       name: "Calculadora Financiera",
       icon: "../../public/icons/finance.png",
     },
+    {
+      path: "/depreciacion",
+      name: "Depreciacion Acumulada",
+      icon: "../../public/icons/depreciacion.png",
+    },
+    {
+      path: "/equilibrio",
+      name: "Punto de Equilibrio",
+      icon: "../../public/icons/equilibrio.png",
+    },
   ];
 
   //No es necesario modificar nada de aqui en adelante
   return (
     <>
-      <nav className="d-flex shadow justify-content-between px-5 py-2 border-bottom mb-4">
-        <h1>SmartFinance</h1>
+      <nav className="d-flex shadow justify-content-between p-1 px-md-5 py-2 border-bottom ">
+        <h1 className="my-auto">SmartFinance</h1>
         <div className="p-1 hambugerbtn rounded" onClick={handleShow}>
           <img src={HamburgerIcon} className="icon " alt="Hamburger Icon" />
         </div>

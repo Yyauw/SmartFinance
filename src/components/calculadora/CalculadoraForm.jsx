@@ -24,7 +24,7 @@ export default function CalculadoraForm({ calcularFinanciamiento }) {
   return (
     <form onSubmit={submitHandler} className="border shadow rounded p-3">
       <section className="row">
-        <div className="mb-3 col-4">
+        <div className="mb-3 col-md-4">
           <label htmlFor="form-label">Monto del prestamo</label>
           <input
             type="number"
@@ -36,7 +36,7 @@ export default function CalculadoraForm({ calcularFinanciamiento }) {
             required
           />
         </div>
-        <div className="mb-3 col-4">
+        <div className="mb-3 col-md-4">
           <label htmlFor="form-label">Tasa de interes anual</label>
           <div className="input-group">
             <input
@@ -54,7 +54,7 @@ export default function CalculadoraForm({ calcularFinanciamiento }) {
             </span>
           </div>
         </div>
-        <div className="mb-3 col-4">
+        <div className="mb-3 col-md-4">
           <label htmlFor="form-label">Plazo de prestamo</label>
           <div className="input-group">
             <input
@@ -101,7 +101,7 @@ export default function CalculadoraForm({ calcularFinanciamiento }) {
       </section>
       <div className="row p-2">
         <div className="col-10"></div>
-        <button className="btn btn-primary col-2">Calcular</button>
+        <button className="btn btn-primary col-md-2">Calcular</button>
       </div>
     </form>
   );

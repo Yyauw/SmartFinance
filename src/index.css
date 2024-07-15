@@ -10,3 +10,7 @@
   cursor: pointer;
   background-color: #1a234234;
 }
+
+.carrouselimg {
+  filter: brightness(50%);
+}

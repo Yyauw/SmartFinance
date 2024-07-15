@@ -42,7 +42,7 @@ export default function Calculadora() {
   };
 
   return (
-    <div className="container">
+    <div className="container mt-4">
       <h1>Calculadora Financiera</h1>
       <p>Proyección de financiamiento </p>
       <CalculadoraForm calcularFinanciamiento={calcularFinanciamiento} />

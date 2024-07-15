@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Calculadora from "./pages/Calculadora";
 import Navbar from "./components/Navbar";
+import PuntoEquilibrio from "./pages/PuntoEquilibrio";
+import Depreciacion from "./pages/Depreciacion";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculadora" element={<Calculadora />} />
+            <Route path="/depreciacion" element={<Depreciacion />} />
+            <Route path="/equilibrio" element={<PuntoEquilibrio />} />
           </Routes>
         </BrowserRouter>
       </div>

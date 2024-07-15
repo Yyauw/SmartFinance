@@ -1,11 +1,11 @@
 import React from "react";
 import { utils, writeFile } from "xlsx";
 
-export default function ExportarExcelButton() {
+export default function ExportarExcelButton({ nombreTabla, nombreArchivo }) {
   const exportarExcel = () => {
-    const table = document.getElementById("tablaAmortizacion");
+    const table = document.getElementById(nombreTabla);
     const wb = utils.table_to_book(table, { sheet: "Sheet1" });
-    writeFile(wb, "tabla_amortizacion.xlsx");
+    writeFile(wb, nombreArchivo + ".xlsx");
   };
 
   return (
