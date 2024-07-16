@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TablaPresupuesto = ({ datos }) => {
-  const { entradas, desembolsos, efectivoInicial, saldoMinimo } = datos;
+  const { entradas, desembolsos, efectivoInicial, saldoMinimo, flujoNeto } = datos;
 
   const calcularPresupuesto = () => {
     let efectivoFinalMesAnterior = efectivoInicial;
@@ -10,16 +10,15 @@ const TablaPresupuesto = ({ datos }) => {
     for (let i = 0; i < 12; i++) {
       const entrada = entradas[i];
       const desembolso = desembolsos[i];
-      const flujoNeto = entrada - desembolso;
-      const efectivoFinal = flujoNeto + efectivoFinalMesAnterior;
+      const flujoNetoMes = flujoNeto ? flujoNeto[i] : entrada - desembolso;
+      const efectivoFinal = flujoNetoMes + efectivoFinalMesAnterior;
       const financiamientoRequerido = efectivoFinal < saldoMinimo ? saldoMinimo - efectivoFinal : 0;
       const saldoExcedente = efectivoFinal > saldoMinimo ? efectivoFinal - saldoMinimo : 0;
 
       presupuesto.push({
-        mes: i + 1,
         entrada,
         desembolso,
-        flujoNeto,
+        flujoNetoMes,
         efectivoFinal,
         financiamientoRequerido,
         saldoExcedente,
@@ -35,9 +34,6 @@ const TablaPresupuesto = ({ datos }) => {
 
   return (
     <section className="border shadow my-3 rounded p-1" id="tablaPresupuesto">
-      <div className="ps-2">
-        <h1 className="mb-2 mt-1">Presupuesto de Caja</h1>
-      </div>
 
       <table className="table table-striped">
         <thead>
@@ -63,13 +59,12 @@ const TablaPresupuesto = ({ datos }) => {
           </tr>
           <tr>
             <td></td>
-            <td colSpan={12} style={{ textAlign: 'center', borderTop: '2px solid black' }}>
-            </td>
+            <td colSpan={12} style={{ textAlign: 'center', borderTop: '2px solid black' }}></td>
           </tr>
           <tr>
             <td style={{ paddingLeft: '20px' }}>Flujo de efectivo neto</td>
-            {presupuesto.map(({ flujoNeto }, index) => (
-              <td key={index}>${flujoNeto.toFixed(2)}</td>
+            {presupuesto.map(({ flujoNetoMes }, index) => (
+              <td key={index}>${flujoNetoMes.toFixed(2)}</td>
             ))}
           </tr>
           <tr>
@@ -80,8 +75,7 @@ const TablaPresupuesto = ({ datos }) => {
           </tr>
           <tr>
             <td></td>
-            <td colSpan={12} style={{ textAlign: 'center', borderTop: '2px solid black' }}>
-            </td>
+            <td colSpan={12} style={{ textAlign: 'center', borderTop: '2px solid black' }}></td>
           </tr>
           <tr>
             <td style={{ paddingLeft: '20px' }}>Efectivo final</td>
@@ -97,8 +91,7 @@ const TablaPresupuesto = ({ datos }) => {
           </tr>
           <tr>
             <td></td>
-            <td colSpan={12} style={{ textAlign: 'center', borderTop: '2px solid black' }}>
-            </td>
+            <td colSpan={12} style={{ textAlign: 'center', borderTop: '2px solid black' }}></td>
           </tr>
           <tr>
             <td style={{ paddingLeft: '20px' }}>Financiamiento total requerido (documentos por pagar)<sup>c</sup></td>

@@ -8,28 +8,36 @@ const Presupuesto = () => {
 
   useEffect(() => {
     const fetchBackendData = async () => {
-      const data = {
-        entradas: [210, 320, 340, 260, 280, 300, 320, 350, 370, 400, 420, 450],
-        desembolsos: [213, 418, 305, 240, 250, 310, 330, 340, 360, 380, 390, 410],
-        efectivoInicial: 50
-      };
-      setBackendData(data);
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/presupuesto/list/');
+        const data = await response.json();
+        setBackendData({
+          entradas: data.entradas,
+          desembolsos: data.desembolsos,
+          flujoNeto: data.flujo_neto,
+          efectivoInicial: 0 // 0 por defecto
+        });
+      } catch (error) {
+        console.error('Error fetching backend data:', error);
+      }
     };
 
     fetchBackendData();
   }, []);
 
   const handleFormSubmit = (formData) => {
-    const integratedData = {
-      ...backendData,
-      saldoMinimo: formData.saldoMinimo
-    };
-    setDatos(integratedData);
+    if (backendData) {
+      const integratedData = {
+        ...backendData,
+        saldoMinimo: formData.saldoMinimo
+      };
+      setDatos(integratedData);
+    }
   };
 
   return (
-    <div className="container">
-      <h2>Presupuesto de Caja</h2>
+    <div className="container mt-4">
+      <h1>Presupuesto de Caja</h1>
       <PresupuestoForm onSubmit={handleFormSubmit} />
       {datos && <TablaPresupuesto datos={datos} />}
     </div>
