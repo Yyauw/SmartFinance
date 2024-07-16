@@ -36,6 +36,11 @@ function Navbar() {
       name: "Presupuesto de Caja",
       icon: "../../public/icons/equilibrio.png",
     },
+    {
+      path: "/razonesfinancieras",
+      name: "Razones Financieras",
+      icon: "../../public/icons/equilibrio.png",
+    },
   ];
 
   //No es necesario modificar nada de aqui en adelante

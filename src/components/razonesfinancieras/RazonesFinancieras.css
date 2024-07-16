@@ -1,0 +1,99 @@
+/* Estilos específicos para la página de Razones Financieras */
+.razones-financieras-page {
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .razones-financieras-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .razones-financieras-page .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .razones-financieras-page .categoria-card {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+  }
+  
+  .razones-financieras-page .categoria-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #001f3f;
+    margin-bottom: 10px;
+  }
+  
+  .razones-financieras-page .razones-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .razones-financieras-page .razon-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .razones-financieras-page .razon-item:last-child {
+    border-bottom: none;
+  }
+  
+  .razones-financieras-page .razon-name {
+    font-size: 16px;
+    color: #333;
+    flex: 2; /* Ajuste para ocupar más espacio en el nombre */
+  }
+  
+  .razones-financieras-page .razon-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #001f3f;
+    margin-right: 10px;
+    flex: 1; /* Ajuste para ocupar menos espacio en el valor */
+  }
+  
+  .razones-financieras-page .razon-indicator {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-align: center;
+    width: 80px;
+  }
+  
+  .razones-financieras-page .razon-indicator.bajo {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .razones-financieras-page .razon-indicator.adecuado {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  .razones-financieras-page .razon-indicator.alto {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .razones-financieras-page .loading {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+  }
+  

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import PuntoEquilibrio from "./pages/PuntoEquilibrio";
 import Depreciacion from "./pages/Depreciacion";
 import Presupuesto from "./pages/Presupuesto";
+import RazonesFinancieras from "./components/razonesfinancieras/RazonesFinancieras";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/depreciacion" element={<Depreciacion />} />
             <Route path="/equilibrio" element={<PuntoEquilibrio />} />
             <Route path="/presupuesto" element={<Presupuesto />} />
+            <Route path="/razonesfinancieras" element={<RazonesFinancieras />} />
           </Routes>
         </BrowserRouter>
       </div>
