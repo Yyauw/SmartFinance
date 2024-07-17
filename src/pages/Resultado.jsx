@@ -17,8 +17,8 @@ export default function Resultado() {
         }
       );
       const data = await response.json();
-      setDatos(data);
-      setProforma(data);
+      setDatos({ ...data, impuestoPorcentaje: 0.25 });
+      setProforma({ ...data, impuestoPorcentaje: 0.25 });
     };
     fetchData();
   }, []);
@@ -43,7 +43,7 @@ export default function Resultado() {
 
     const ingresosProforma = [
       {
-        nombre: datos.ingresos[0].nombre + ` (${100})`,
+        nombre: datos.ingresos[0].nombre,
         valor: ingresosP,
       },
     ];
@@ -53,11 +53,11 @@ export default function Resultado() {
       ingresos: ingresosProforma,
       costos: [
         {
-          nombre: datos.costos[0].nombre + ` (${gastosOP.toFixed(2)})`,
+          nombre: datos.costos[0].nombre + ` (${gastosOP.toFixed(2)} x ventas)`,
           valor: P_gastosOP,
         },
         {
-          nombre: datos.costos[1].nombre + ` (${costosBV.toFixed(2)})`,
+          nombre: datos.costos[1].nombre + ` (${costosBV.toFixed(2)} x ventas)`,
           valor: P_costosBV,
         },
       ],
@@ -93,10 +93,11 @@ export default function Resultado() {
 
   const modificarTasa = (tasa) => {
     const tasaNueva = datos.utilidad_n_adi * (tasa / 100);
-    setDatos({ ...datos, impuesto: tasaNueva });
+    setDatos({ ...datos, impuesto: tasaNueva, impuestoPorcentaje: tasa / 100 });
     setProforma({
       ...proforma,
       impuesto: proforma.utilidad_n_adi * (tasa / 100),
+      impuestoPorcentaje: tasa / 100,
     });
   };
 

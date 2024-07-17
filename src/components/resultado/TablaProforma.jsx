@@ -80,7 +80,7 @@ export default function TablaProforma({ resultado }) {
                 <tr>
                   <td>
                     Gastos por intereses{" "}
-                    {`(${resultado.porcentajeIntereses.toFixed(2)})`}
+                    {`(${resultado.porcentajeIntereses.toFixed(2)} x ventas)`}
                   </td>
                   <td>{resultado.intereses.toFixed(2)}</td>
                 </tr>
@@ -93,7 +93,7 @@ export default function TablaProforma({ resultado }) {
                   </td>
                 </tr>
                 <tr>
-                  <td>Impuestos {`(${resultado.porcentajeImpuesto})`}</td>
+                  <td>Impuestos {`(${resultado.impuestoPorcentaje})`}</td>
                   <td>{resultado.impuesto.toFixed(2)}</td>
                 </tr>
                 <tr className="table-primary">

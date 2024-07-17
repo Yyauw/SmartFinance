@@ -52,12 +52,14 @@ export default function TablaResultado({ resultado }) {
 
               <tr>
                 <td>{resultado.costos[1].nombre}</td>
-                <td>{resultado.costos[1].valor}</td>
+                <td>{resultado.costos[1].valor.toFixed(2)}</td>
               </tr>
 
               <tr className="table-primary">
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;Utilidad Bruta</td>
-                <td className="text-end">${resultado?.utilidad_bruta}</td>
+                <td className="text-end">
+                  ${resultado?.utilidad_bruta.toFixed(2)}
+                </td>
               </tr>
               <tr>
                 <td>{resultado.costos[0].nombre}</td>
@@ -65,7 +67,9 @@ export default function TablaResultado({ resultado }) {
               </tr>
               <tr className="table-primary">
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;Utilidad Operativa</td>
-                <td className="text-end">${resultado?.utilidad_operativa}</td>
+                <td className="text-end">
+                  ${resultado?.utilidad_operativa.toFixed(2)}
+                </td>
               </tr>
               <tr>
                 <td>Gastos por intereses</td>
@@ -75,10 +79,12 @@ export default function TablaResultado({ resultado }) {
                 <td>
                   &nbsp;&nbsp;&nbsp;&nbsp;Utilidad neta antes de impuestos
                 </td>
-                <td className="text-end">${resultado?.utilidad_n_adi}</td>
+                <td className="text-end">
+                  ${resultado?.utilidad_n_adi.toFixed(2)}
+                </td>
               </tr>
               <tr>
-                <td>Impuestos</td>
+                <td>Impuestos&nbsp;{`(${resultado.impuestoPorcentaje})`}</td>
                 <td>{resultado.impuesto.toFixed(2)}</td>
               </tr>
               <tr className="table-primary">

@@ -58,7 +58,9 @@ export default function Ventas() {
       precio: productos[nuevaVenta.producto - 1].previo_venta,
       monto: montoTotal,
       credito_otorgado: nuevaVenta.credito,
-      abono_mitad: (montoTotal / 2).toFixed(2),
+      abono_mitad: nuevaVenta.credito
+        ? (montoTotal / 2).toFixed(2)
+        : montoTotal,
       fecha_cancelacion: nuevaVenta.credito
         ? fechaCredito.toISOString().slice(0, 10)
         : new Date().toISOString().slice(0, 10),

@@ -18,36 +18,38 @@ export default function VentasHoy({ ventas, productos }) {
         <h5 className="">
           <Link to="/lista_ventas">Ver Historial de ventas</Link>
         </h5>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Transaccion</th>
-              <th>Fecha</th>
-              <th>Producto</th>
-              <th>Cantidad</th>
-              <th>Monto total</th>
-              <th>Credito otorgado</th>
-              <th>Abono</th>
-              <th>Fecha Cancelacion</th>
-              <th>Cancelacion</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ventas.map((venta, index) => (
-              <tr key={index}>
-                <td>{venta.transaccion}</td>
-                <td>{venta.fecha}</td>
-                <td>{productos[venta?.producto - 1].descripcion}</td>
-                <td>{venta.cantidad}</td>
-                <td>{venta.monto}</td>
-                <td>{venta.credito_otorgado ? "Si" : "No"}</td>
-                <td>{venta.abono_mitad}</td>
-                <td>{venta.fecha_cancelacion}</td>
-                <td>{venta.cancelacion}</td>
+        <div className="table-responsive">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Transaccion</th>
+                <th>Fecha</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Monto total</th>
+                <th>Credito otorgado</th>
+                <th>Abono</th>
+                <th>Fecha Cancelacion</th>
+                <th>Cancelacion</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {ventas.map((venta, index) => (
+                <tr key={index}>
+                  <td>{venta.transaccion}</td>
+                  <td>{venta.fecha}</td>
+                  <td>{productos[venta?.producto - 1].descripcion}</td>
+                  <td>{venta.cantidad}</td>
+                  <td>{venta.monto}</td>
+                  <td>{venta.credito_otorgado ? "Si" : "No"}</td>
+                  <td>{venta.abono_mitad}</td>
+                  <td>{venta.fecha_cancelacion}</td>
+                  <td>{venta.cancelacion}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

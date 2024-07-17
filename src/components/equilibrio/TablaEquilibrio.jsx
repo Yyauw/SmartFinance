@@ -36,12 +36,12 @@ export default function TablaEquilibrio({ equilibrio }) {
               <tr key={index}>
                 <td>{fila.id_producto}</td>
                 <td>{fila.description}</td>
-                <td>{fila.margen_contribucion}</td>
-                <td>{fila.precio_venta}</td>
+                <td>${fila.margen_contribucion}</td>
+                <td>${fila.precio_venta}</td>
                 <td>{fila.cantidad_vendida.toFixed(0)}</td>
                 <td>{(fila.porcentaje_mezcla_venta * 100).toFixed(2)}%</td>
                 <td>{fila.equilibrio_cantidad.toFixed(0)}</td>
-                <td>{fila.equilibrio_ingresos.toFixed(2)}</td>
+                <td>${fila.equilibrio_ingresos.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>

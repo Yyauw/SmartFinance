@@ -83,7 +83,7 @@ export default function Balance() {
       <BalanceForm calcularProforma={calcularProforma} />
       <div className="row">
         <TablaBalance balance={datos} />
-        <BalanceProforma balance={proforma} />
+        <BalanceProforma balance={proforma} viejo={datos} />
       </div>
     </div>
   );

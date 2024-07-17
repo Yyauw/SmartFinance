@@ -71,7 +71,7 @@ export default function TablaBalance({ balance }) {
                 <td>{balance?.activos.depreciacion.toFixed(2)}</td>
               </tr>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;Activos netos</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Activos fijos netos</td>
                 <td className="text-end">
                   {balance?.activos.activos_netos.toFixed(2)}
                 </td>

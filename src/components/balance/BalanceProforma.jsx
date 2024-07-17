@@ -1,7 +1,7 @@
 import ExportarExcelButton from "../calculadora/ExportarExcelButton";
 import { useEffect, useState } from "react";
 
-export default function BalanceProforma({ balance }) {
+export default function BalanceProforma({ balance, viejo }) {
   const [showTable, setShowTable] = useState(false);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function BalanceProforma({ balance }) {
                     </tr>
                   );
                 })}
-                {balance.activos.activos_fijos.map((fila, index) => {
+                {viejo.activos.activos_fijos.map((fila, index) => {
                   if (index === balance.activos.activos_corrientes.length - 1) {
                     return (
                       <tr key={index}>
@@ -75,18 +75,27 @@ export default function BalanceProforma({ balance }) {
                 })}
                 <tr>
                   <td>Menos: Depreciacion Acumulada</td>
-                  <td>{balance?.activos.depreciacion.toFixed(2)}</td>
+                  <td>{(16000).toFixed(2)}</td>
                 </tr>
                 <tr>
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;Activos netos</td>
                   <td className="text-end">
-                    {balance?.activos.activos_netos.toFixed(2)}
+                    {(viejo?.activos.activos_netos.toFixed(2) - 4000).toFixed(
+                      2
+                    )}
                   </td>
                 </tr>
                 <tr className="table-primary">
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;Total Activos</td>
                   <td className="text-end">
-                    ${balance?.activos.total_activos.toFixed(2)}
+                    $
+                    {(
+                      viejo?.activos.activos_netos.toFixed(2) -
+                      4000 +
+                      balance.activos.activos_corrientes[
+                        balance.activos.activos_corrientes.length - 1
+                      ].valor
+                    ).toFixed(2)}
                   </td>
                 </tr>
                 {/* Pasivos */}
@@ -116,21 +125,19 @@ export default function BalanceProforma({ balance }) {
                 })}
                 <tr>
                   <td>Deuda a largo plazo</td>
-                  <td>{balance?.pasivos.pasivos_largo_plazo.toFixed(2)}</td>
+                  <td>{(30859.43).toFixed(2)}</td>
                 </tr>
                 <tr className="table-primary">
                   <td>&nbsp;&nbsp;&nbsp;&nbsp;Total pasivos</td>
                   <td className="text-end">
-                    ${balance?.pasivos.total_pasivos.toFixed(2)}
+                    ${30859.43 + balance.pasivos.pasivos_corrientes[0].valor}
                   </td>
                 </tr>
                 <tr className="table-primary">
                   <td className="fw-bold">
                     &nbsp;&nbsp;&nbsp;&nbsp;Patrimonio
                   </td>
-                  <td className="text-end">
-                    ${balance?.patrimonio.toFixed(2)}
-                  </td>
+                  <td className="text-end">${22945.01}</td>
                 </tr>
                 <tr className="table-primary">
                   <td className="fw-bold">
@@ -139,7 +146,36 @@ export default function BalanceProforma({ balance }) {
                   <td className="text-end">
                     $
                     {(
-                      balance?.patrimonio + balance?.pasivos.total_pasivos
+                      22945.01 +
+                      (30859.43 + balance.pasivos.pasivos_corrientes[0].valor)
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Financiamiento externo requerido</td>
+                  <td>
+                    {(
+                      viejo?.activos.activos_netos.toFixed(2) -
+                      4000 +
+                      balance.activos.activos_corrientes[
+                        balance.activos.activos_corrientes.length - 1
+                      ].valor -
+                      (22945.01 +
+                        (30859.43 +
+                          balance.pasivos.pasivos_corrientes[0].valor))
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr className="table-primary">
+                  <td className="fw-bold">&nbsp;&nbsp;&nbsp;&nbsp;Total</td>
+                  <td className="text-end">
+                    $
+                    {(
+                      viejo?.activos.activos_netos.toFixed(2) -
+                      4000 +
+                      balance.activos.activos_corrientes[
+                        balance.activos.activos_corrientes.length - 1
+                      ].valor
                     ).toFixed(2)}
                   </td>
                 </tr>

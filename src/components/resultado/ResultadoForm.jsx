@@ -52,7 +52,6 @@ export default function ResultadoForm({ calcularProforma, modificarTasa }) {
             <div className="input-group">
               <input
                 type="number"
-                min="0"
                 step=".01"
                 className="form-control"
                 name="pronostico"
