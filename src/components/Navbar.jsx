@@ -17,6 +17,11 @@ function Navbar() {
       icon: "../../public/icons/home.png",
     },
     {
+      path: "/ventas",
+      name: "Ventas",
+      icon: "../../public/icons/ventas.png",
+    },
+    {
       path: "/productos",
       name: "Productos",
       icon: "../../public/icons/products.png",

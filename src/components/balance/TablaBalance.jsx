@@ -18,7 +18,7 @@ export default function TablaBalance({ balance }) {
           />
         </div>
         <div className="table-responsive">
-          <table className="table ">
+          <table className="table table-striped ">
             <thead></thead>
             <tbody>
               {/* Activos */}
@@ -26,48 +26,111 @@ export default function TablaBalance({ balance }) {
                 <td className="fw-bold">Activos</td>
                 <td></td>
               </tr>
-              {balance.activos.activos_corrientes.map((fila, index) => (
-                <tr key={index}>
-                  <td>{fila.nombre}</td>
-                  <td>{fila.valor.toFixed(2)}</td>
-                </tr>
-              ))}
-              {balance.activos.activos_fijos.map((fila, index) => (
-                <tr key={index}>
-                  <td>{fila.nombre}</td>
-                  <td>{fila.valor.toFixed(2)}</td>
-                </tr>
-              ))}
+              {balance.activos.activos_corrientes.map((fila, index) => {
+                if (index === balance.activos.activos_corrientes.length - 1) {
+                  return (
+                    <tr key={index}>
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {fila.nombre}
+                      </td>
+                      <td className="text-end">{fila.valor.toFixed(2)}</td>
+                    </tr>
+                  );
+                }
+
+                return (
+                  <tr key={index}>
+                    <td>{fila.nombre}</td>
+                    <td>{fila.valor.toFixed(2)}</td>
+                  </tr>
+                );
+              })}
+              {balance.activos.activos_fijos.map((fila, index) => {
+                if (index === balance.activos.activos_corrientes.length - 1) {
+                  return (
+                    <tr key={index}>
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {fila.nombre}
+                      </td>
+                      <td className="text-end">{fila.valor.toFixed(2)}</td>
+                    </tr>
+                  );
+                }
+
+                return (
+                  <tr key={index}>
+                    <td>{fila.nombre}</td>
+                    <td>{fila.valor.toFixed(2)}</td>
+                  </tr>
+                );
+              })}
               <tr>
-                <td>Activos netos</td>
-                <td>{balance?.activos.activos_netos.toFixed(2)}</td>
+                <td>Menos: Depreciacion Acumulada</td>
+                <td>{balance?.activos.depreciacion.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Activos netos</td>
+                <td className="text-end">
+                  {balance?.activos.activos_netos.toFixed(2)}
+                </td>
               </tr>
               <tr className="table-primary">
-                <td>Total Activos</td>
-                <td>${balance?.activos.total_activos.toFixed(2)}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Total Activos</td>
+                <td className="text-end">
+                  ${balance?.activos.total_activos.toFixed(2)}
+                </td>
               </tr>
               {/* Pasivos */}
               <tr>
                 <td className="fw-bold">Pasivos</td>
                 <td></td>
               </tr>
-              {balance.pasivos.pasivos_corrientes.map((fila, index) => (
-                <tr key={index}>
-                  <td>{fila.nombre}</td>
-                  <td>{fila.valor.toFixed(2)}</td>
-                </tr>
-              ))}
+              {balance.pasivos.pasivos_corrientes.map((fila, index) => {
+                if (index === balance.pasivos.pasivos_corrientes.length - 1) {
+                  return (
+                    <tr key={index}>
+                      <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        {fila.nombre}
+                      </td>
+                      <td className="text-end">{fila.valor.toFixed(2)}</td>
+                    </tr>
+                  );
+                }
+
+                return (
+                  <tr key={index}>
+                    <td>{fila.nombre}</td>
+                    <td>{fila.valor.toFixed(2)}</td>
+                  </tr>
+                );
+              })}
               <tr>
                 <td>Deuda a largo plazo</td>
                 <td>{balance?.pasivos.pasivos_largo_plazo.toFixed(2)}</td>
               </tr>
               <tr className="table-primary">
-                <td>Total pasivos</td>
-                <td>${balance?.pasivos.total_pasivos.toFixed(2)}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Total pasivos</td>
+                <td className="text-end">
+                  ${balance?.pasivos.total_pasivos.toFixed(2)}
+                </td>
               </tr>
               <tr className="table-primary">
-                <td className="fw-bold">Patrimonio</td>
-                <td>${balance?.patrimonio.toFixed(2)}</td>
+                <td className="fw-bold">&nbsp;&nbsp;&nbsp;&nbsp;Patrimonio</td>
+                <td className="text-end">${balance?.patrimonio.toFixed(2)}</td>
+              </tr>
+              <tr className="table-primary">
+                <td className="fw-bold">
+                  &nbsp;&nbsp;&nbsp;&nbsp;Total Pasivos y Patrimonios
+                </td>
+                <td className="text-end">
+                  $
+                  {(
+                    balance?.patrimonio + balance?.pasivos.total_pasivos
+                  ).toFixed(2)}
+                </td>
               </tr>
             </tbody>
           </table>

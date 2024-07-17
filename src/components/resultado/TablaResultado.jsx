@@ -1,7 +1,7 @@
 import ExportarExcelButton from "../calculadora/ExportarExcelButton";
 
 export default function TablaResultado({ resultado }) {
-  console.log(resultado);
+  //console.log(resultado);
 
   if (resultado.length === 0) {
     return <p>No hay datos disponibles</p>;
@@ -34,8 +34,8 @@ export default function TablaResultado({ resultado }) {
                 </tr>
               ))}
               <tr className="table-primary">
-                <td>Total Ingresos</td>
-                <td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Total Ingresos</td>
+                <td className="text-end">
                   $
                   {resultado?.ingresos.reduce(
                     (prev, current) => prev + current.valor,
@@ -56,32 +56,38 @@ export default function TablaResultado({ resultado }) {
               </tr>
 
               <tr className="table-primary">
-                <td>Utilidad Bruta</td>
-                <td>${resultado?.utilidad_bruta}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Utilidad Bruta</td>
+                <td className="text-end">${resultado?.utilidad_bruta}</td>
               </tr>
               <tr>
                 <td>{resultado.costos[0].nombre}</td>
                 <td>{resultado.costos[0].valor}</td>
               </tr>
               <tr className="table-primary">
-                <td>Utilidad Operativa</td>
-                <td>${resultado?.utilidad_operativa}</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;Utilidad Operativa</td>
+                <td className="text-end">${resultado?.utilidad_operativa}</td>
               </tr>
               <tr>
                 <td>Gastos por intereses</td>
                 <td>{resultado.intereses}</td>
               </tr>
               <tr className="table-primary">
-                <td>Utilidad neta antes de impuestos</td>
-                <td>${resultado?.utilidad_n_adi}</td>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Utilidad neta antes de impuestos
+                </td>
+                <td className="text-end">${resultado?.utilidad_n_adi}</td>
               </tr>
               <tr>
                 <td>Impuestos</td>
                 <td>{resultado.impuesto.toFixed(2)}</td>
               </tr>
               <tr className="table-primary">
-                <td>Utilidad neta despues de impuestos</td>
-                <td>${resultado?.utilidad_n_ddi.toFixed(2)}</td>
+                <td>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Utilidad neta despues de impuestos
+                </td>
+                <td className="text-end">
+                  ${(resultado?.utilidad_n_adi - resultado.impuesto).toFixed(2)}
+                </td>
               </tr>
             </tbody>
           </table>
