@@ -8,6 +8,9 @@ import PuntoEquilibrio from "./pages/PuntoEquilibrio";
 import Depreciacion from "./pages/Depreciacion";
 import Presupuesto from "./pages/Presupuesto";
 import RazonesFinancieras from "./pages/RazonesFinancieras";
+import Resultado from "./pages/Resultado";
+import Balance from "./pages/Balance";
+
 
 function App() {
   return (
@@ -18,6 +21,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculadora" element={<Calculadora />} />
+            <Route path="/balance" element={<Balance />} />
+            <Route path="/resultado" element={<Resultado />} />
             <Route path="/depreciacion" element={<Depreciacion />} />
             <Route path="/equilibrio" element={<PuntoEquilibrio />} />
             <Route path="/presupuesto" element={<Presupuesto />} />
