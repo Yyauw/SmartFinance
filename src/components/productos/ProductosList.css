@@ -1,0 +1,20 @@
+.producto-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.producto-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.producto-card .precio-venta {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.producto-card .costo-unitario,
+.producto-card .codigo-producto {
+  font-size: 0.875rem;
+}

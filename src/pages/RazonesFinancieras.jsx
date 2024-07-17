@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './RazonesFinancieras.css';
+import '../components/razonesfinancieras/RazonesFinancieras.css';
 
 const RazonesFinancieras = () => {
   const [razones, setRazones] = useState(null);

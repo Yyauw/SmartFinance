@@ -17,6 +17,11 @@ function Navbar() {
       icon: "../../public/icons/home.png",
     },
     {
+      path: "/productos",
+      name: "Productos",
+      icon: "../../public/icons/products.png",
+    },
+    {
       path: "/calculadora",
       name: "Calculadora Financiera",
       icon: "../../public/icons/finance.png",
@@ -34,12 +39,12 @@ function Navbar() {
     {
       path: "/presupuesto",
       name: "Presupuesto de Caja",
-      icon: "../../public/icons/equilibrio.png",
+      icon: "../../public/icons/presupuesto.png",
     },
     {
       path: "/razonesfinancieras",
       name: "Razones Financieras",
-      icon: "../../public/icons/equilibrio.png",
+      icon: "../../public/icons/razones.png",
     },
   ];
 
